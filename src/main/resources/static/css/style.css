@@ -1,0 +1,48 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1F2739;
+}
+
+@property --black {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: black;
+}
+
+@property --text-gray {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #a7a1ae;
+}
+
+@property --light-gray {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #323c50;
+}
+
+@property --dark-gray {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #2c3446;
+}
+
+@property --light-blue {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(16, 183, 238);
+}
+
+:root {
+    --black: black;
+    --text-gray: #a7a1ae;
+    --light-gray: #323c50;
+    --dark-gray: #2c3446;
+    --light-blue: rgb(16, 183, 238);
+}
