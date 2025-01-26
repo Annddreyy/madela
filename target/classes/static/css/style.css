@@ -39,10 +39,24 @@ body {
     initial-value: rgb(16, 183, 238);
 }
 
+@property --dark-blue {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(7, 81, 105);
+}
+
+@property --dark-red {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(90, 4, 4);
+}
+
 :root {
     --black: black;
     --text-gray: #a7a1ae;
     --light-gray: #323c50;
     --dark-gray: #2c3446;
     --light-blue: rgb(16, 183, 238);
+    --dark-blue: rgb(7, 81, 105);
+    --dark-red: rgb(90, 4, 4);
 }
