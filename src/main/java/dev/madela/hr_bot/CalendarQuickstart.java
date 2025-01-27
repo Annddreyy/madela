@@ -10,19 +10,22 @@ import com.google.api.services.calendar.model.Event;
 import com.google.api.services.calendar.model.EventDateTime;
 import com.google.auth.http.HttpCredentialsAdapter;
 import com.google.auth.oauth2.GoogleCredentials;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
-import java.time.Instant;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 
 public class CalendarQuickstart {
     private static final String APPLICATION_NAME = "Google Calendar API HRBot";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
     private static Calendar service;
+    private static final Logger logger = LoggerFactory.getLogger(CalendarQuickstart.class);
 
     public static void createEvent(String title, String start, String end) throws IOException, GeneralSecurityException {
         FileInputStream credentialsStream = new FileInputStream("credentials.json");
@@ -34,30 +37,27 @@ public class CalendarQuickstart {
                 .setApplicationName(APPLICATION_NAME)
                 .build();
 
-        ZoneId zoneId = ZoneId.of(ZoneId.systemDefault().toString());
-        ZoneOffset offset = zoneId.getRules().getOffset(Instant.now());
-        String offsetString = offset.getId();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+        LocalDateTime startLocalDateTime = LocalDateTime.parse(start, formatter);
+        LocalDateTime endLocalDateTime = LocalDateTime.parse(end, formatter);
 
-        start = start + offsetString;
-        end = end + offsetString;
+        DateTime startDateTime = new DateTime(startLocalDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
+        DateTime endDateTime = new DateTime(endLocalDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
 
         Event event = new Event()
                 .setSummary(title);
 
-        DateTime startDateTime = new DateTime(start);
         EventDateTime startTime = new EventDateTime()
-                .setDateTime(startDateTime)
-                .setTimeZone(ZoneId.systemDefault().toString());
+                .setDateTime(startDateTime);
         event.setStart(startTime);
 
-        DateTime endDateTime = new DateTime(end);
         EventDateTime endTime = new EventDateTime()
-                .setDateTime(endDateTime)
-                .setTimeZone(ZoneId.systemDefault().toString());
+                .setDateTime(endDateTime);
         event.setEnd(endTime);
 
         String calendarId = "7b40dfb7d6086a335ee17ff269dae830e74542ef7d6b3e62d6441c55b26603b8@group.calendar.google.com";
         event = service.events().insert(calendarId, event).execute();
-        System.out.printf("Event created: %s", event.getHtmlLink());
+
+        logger.info("Event created: {}", event.getHtmlLink());
     }
 }
