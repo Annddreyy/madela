@@ -21,11 +21,11 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 
-public class CalendarQuickstart {
+public class GoogleCalendar {
     private static final String APPLICATION_NAME = "Google Calendar API HRBot";
     private static final JsonFactory JSON_FACTORY = GsonFactory.getDefaultInstance();
     private static Calendar service;
-    private static final Logger logger = LoggerFactory.getLogger(CalendarQuickstart.class);
+    private static final Logger logger = LoggerFactory.getLogger(GoogleCalendar.class);
 
     public static void createEvent(String title, String start, String end) throws IOException, GeneralSecurityException {
         FileInputStream credentialsStream = new FileInputStream("credentials.json");
