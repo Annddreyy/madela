@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Базовый стиль</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Заголовок 1</h1>
+        <h2>Заголовок 2</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa culpa dolorum commodi assumenda omnis porro perspiciatis nobis eaque saepe quidem?</p>
+
+        <h2>Таблица</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ФИО</th>
+                    <th>Email</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Иванов И.И.</td>
+                    <td>ivanov@mail.ru</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">Редактировать</button>
+                        <button class="btn btn-sm btn-danger">Удалить</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Петров П.П.</td>
+                    <td>petrov@mail.ru</td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">Редактировать</button>
+                        <button class="btn btn-sm btn-danger">Удалить</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Формы</h2>
+        <form>
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email">
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+    </div>
+</body>
+</html>

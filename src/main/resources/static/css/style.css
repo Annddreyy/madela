@@ -1,0 +1,74 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    // background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    background-color: #1F2739;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@property --black {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: black;
+}
+
+@property --text-gray {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #a7a1ae;
+}
+
+@property --light-gray {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #323c50;
+}
+
+@property --dark-gray {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: #2c3446;
+}
+
+@property --light-blue {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(16, 183, 238);
+}
+
+@property --dark-blue {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(7, 81, 105);
+}
+
+@property --dark-red {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: rgb(90, 4, 4);
+}
+
+:root {
+    --black: black;
+    --text-gray: #a7a1ae;
+    --light-gray: #323c50;
+    --dark-gray: #2c3446;
+    --light-blue: rgb(16, 183, 238);
+    --dark-blue: rgb(7, 81, 105);
+    --dark-red: rgb(90, 4, 4);
+}

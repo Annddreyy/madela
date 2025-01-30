@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вакансии</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/vacancies.css}">
+</head>
+<body>
+    <table class="vacancies-table">
+        <thead>
+            <tr>
+                <th>Название вакансии</th>
+                <th>Описание</th>
+                <th data-type="number">Зарплата</th>
+                <th>HR</th>
+                <th>Действие</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="vacance : ${vacancies}">
+                <td th:text="${vacancy.title}"></td>
+                <td th:text="${vacancy.description}"></td>
+                <td th:text="${vacancy.salary}"></td>
+                <td th:text="${vacancy.hr}"></td>
+                <td>
+                    <a th:href="@{/vacancies/delete/{id}(id=${vacancy.id})}" class="remove-vacancie-button">Удалить</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script th:src="@{/js/vacancies.js}"></script>
+</body>
+</html>
