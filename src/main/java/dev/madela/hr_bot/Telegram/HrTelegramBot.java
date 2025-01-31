@@ -1,6 +1,5 @@
 package dev.madela.hr_bot.Telegram;
 
-import dev.madela.hr_bot.CreateGoogleCalendarEventService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
