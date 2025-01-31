@@ -39,6 +39,9 @@
 		<flyway.version>9.5.1</flyway.version>
 		<jetbrains.annotations.version>13.0</jetbrains.annotations.version>
 		<telegrambots-spring-boot-starter>5.5.0</telegrambots-spring-boot-starter>
+		<spring-security-config.version>6.4.2</spring-security-config.version>
+		<spring-security-core.version>6.4.2</spring-security-core.version>
+		<spring-security-crypto.version>6.4.2</spring-security-crypto.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -71,18 +74,18 @@
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>6.4.2</version>
+			<version>${spring-security-config.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
-			<version>6.4.2</version>
+			<version>${spring-security-core.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-crypto</artifactId>
-			<version>6.4.2</version>
+			<version>${spring-security-crypto.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.oauth-client</groupId>
