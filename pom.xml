@@ -36,6 +36,7 @@
 		<google-oauth-client-jetty.version>1.34.1</google-oauth-client-jetty.version>
 		<slf4j-api.version>2.0.12</slf4j-api.version>
 		<logback-classic.version>1.4.14</logback-classic.version>
+		<telegrambots-spring-boot-starter>5.5.0</telegrambots-spring-boot-starter>
     </properties>
 	<dependencies>
 		<dependency>
@@ -57,7 +58,7 @@
 		<dependency>
 			<groupId>org.telegram</groupId>
 			<artifactId>telegrambots-spring-boot-starter</artifactId>
-			<version>5.5.0</version>
+			<version>${telegrambots-spring-boot-starter}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.api-client</groupId>

@@ -1,5 +1,8 @@
 package dev.madela.hr_bot.Telegram;
 
+import dev.madela.hr_bot.CreateGoogleCalendarEventService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -9,6 +12,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 @Component
 public class HrTelegramBot extends TelegramLongPollingBot {
+    private static final Logger logger = LoggerFactory.getLogger(HrTelegramBot.class);
 
     @Autowired
     private UserStateService userStateService;
@@ -75,16 +79,16 @@ public class HrTelegramBot extends TelegramLongPollingBot {
         sendMessage.setText(message);
         try {
             execute(sendMessage);
-            System.out.println("Notification sent to chatId: " + chatId);
+            logger.info("Notification sent to chatId: {}", chatId);
         } catch (TelegramApiException e) {
-            e.printStackTrace();
+            logger.error("Error sending notification to chatId: {}", chatId, e);
         }
     }
 
     public void sendNotificationToAll(String message) {
-        System.out.println("Sending notification to all active users...");
+        logger.info("Sending notification to all active users...");
         for (Long chatId : userStateService.getActiveUsers()) {
-            System.out.println("Sending notification to chatId: " + chatId);
+            logger.info("Sending notification to chatId: {}", chatId);
             sendNotification(String.valueOf(chatId), message);
         }
     }
