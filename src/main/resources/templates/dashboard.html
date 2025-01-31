@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Панель управления</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #1F2739;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: var(--text-gray);
+    }
+
+    @property --black {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: black;
+    }
+
+    @property --text-gray {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #a7a1ae;
+    }
+
+    @property --light-gray {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #323c50;
+    }
+
+    @property --dark-gray {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: #2c3446;
+    }
+
+    @property --light-blue {
+        syntax: "<color>";
+        inherits: true;
+        initial-value: rgb(16, 183, 238);
+    }
+
+    :root {
+        --black: black;
+        --text-gray: #a7a1ae;
+        --light-gray: #323c50;
+        --dark-gray: #2c3446;
+        --light-blue: rgb(16, 183, 238);
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        color: var(--light-blue);
+        text-decoration: none;
+        font-size: 1.2em;
+    }
+
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+
+    h1 {
+        color: var(--light-blue);
+        margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Панель управления</h1>
+
+<nav>
+  <ul>
+    <li><a th:href="@{/vacancies}">Вакансии</a></li>
+    <li><a th:href="@{/surveys}">Опросы</a></li>
+    <li><a th:href="@{/reports}">Отчеты</a></li>
+  </ul>
+</nav>
+</body>
+</html>
