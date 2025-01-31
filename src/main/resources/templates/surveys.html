@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Опросы</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/surveys.css}">
+</head>
+<body>
+<h1>Опросы</h1>
+
+<div>
+    <h2>Добавить новый опрос</h2>
+    <form id="surveyForm">
+        <label for="surveyName">Название опроса:</label>
+        <input type="text" id="surveyName" name="surveyName" required>
+
+        <div id="optionsContainer">
+            <label for="option1">Вариант 1:</label>
+            <input type="text" id="option1" name="option1" required>
+        </div>
+
+        <button type="button" onclick="addOption()">Добавить вариант</button>
+        <button type="button" onclick="addSurvey()">Добавить опрос</button>
+    </form>
+</div>
+
+<div>
+    <h2>Список опросов</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Название опроса</th>
+            <th>Варианты</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+        <tbody id="surveyList">
+        </tbody>
+    </table>
+</div>
+
+<script th:src="@{/js/surveys.js}"></script>
+</body>
+</html>
